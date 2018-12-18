@@ -103,7 +103,7 @@ FROM tomcat:8.5
 #     && Rscript -e "install.packages('geosphere', dependencies=TRUE)"
 
 #Install PostgreSQL 9.6
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 \
+RUN apt-key adv --no-tty --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 \
     && echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && apt-get update && apt-get install -y apt-utils apt-transport-https ca-certificates \
     && apt-get -y -q install postgresql-9.6 postgresql-client-9.6 postgresql-contrib-9.6
