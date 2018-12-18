@@ -7,19 +7,6 @@ ENV LANGUAGE pt_BR
 ENV LC_ALL pt_BR.UTF-8 
 ENV LANG pt_BR.UTF-8
 
-ARG BUILD_DATE=unknown
-ARG TRAVIS_COMMIT=unknown
-
-LABEL org.label-schema.build-date=$BUILD_DATE \
-          org.label-schema.name="Web, GIS and image processing Docker Image" \
-          org.label-schema.description="SGS Docker image for Web, GIS and image processing" \
-          org.label-schema.url="https://hub.docker.com/r/edineipiovesan/web-gis-imageprocessing" \
-          org.label-schema.vcs-ref=$TRAVIS_COMMIT \
-          org.label-schema.vcs-url="https://github.com/edineipiovesan/web-gis-imageprocessing" \
-          org.label-schema.vendor="Edinei" \
-          org.label-schema.version=$TRAVIS_COMMIT \
-          org.label-schema.schema-version="1.0"
-
 # Load assets
 WORKDIR $ROOTDIR/
 ADD http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz $ROOTDIR/src/
@@ -115,5 +102,18 @@ RUN apt-get install wget -y \
     && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add \
     && apt-get update \
     && apt-get install postgis postgresql-9.6-postgis-2.3 postgresql-9.6-postgis-2.3-scripts -y 
+
+ARG BUILD_DATE=unknown
+ARG TRAVIS_COMMIT=unknown
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+          org.label-schema.name="Web, GIS and image processing Docker Image" \
+          org.label-schema.description="SGS Docker image for Web, GIS and image processing" \
+          org.label-schema.url="https://hub.docker.com/r/edineipiovesan/web-gis-imageprocessing" \
+          org.label-schema.vcs-ref=$TRAVIS_COMMIT \
+          org.label-schema.vcs-url="https://github.com/edineipiovesan/web-gis-imageprocessing" \
+          org.label-schema.vendor="Edinei" \
+          org.label-schema.version=$TRAVIS_COMMIT \
+          org.label-schema.schema-version="1.0"
 
 EXPOSE 8080
