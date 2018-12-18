@@ -10,7 +10,7 @@ This image is based on tomcat:8.5 and contains:
  - PostGIS
  - Git, maven , curl, cmake, python and some other tools required to build applications above
 
-Dockerfile by @autimio
+Dockerfile by [@autimio](https://github.com/autimio)
 
 # DockerHub
 
