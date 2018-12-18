@@ -87,7 +87,8 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
     && Rscript -e "install.packages('maptools', dependencies=TRUE)" \
     && Rscript -e "install.packages('jsonlite', dependencies=TRUE)" \
     && Rscript -e "install.packages('gdalUtils', dependencies=TRUE)" \
-    && Rscript -e "install.packages('geosphere', dependencies=TRUE)"
+    && Rscript -e "install.packages('geosphere', dependencies=TRUE)" \
+    && Rscript -e "install.packages('dplyr', dependencies=TRUE)"
 
 #Install PostgreSQL 9.6
 RUN apt-key adv --no-tty --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 \
