@@ -11,7 +11,7 @@ before_script:
   - docker pull $USERNAME/$CONTAINER_IMAGE || true
 
 script:
-  - docker build --cache-from $CONTAINER_IMAGE:latest --build-arg BUILD_DATE="${BUILD_DATE}" --build-arg TRAVIS_COMMIT="${TRAVIS_COMMIT}" --tag $USERNAME/$CONTAINER_IMAGE:$TRAVIS_COMMIT --tag $USERNAME/$CONTAINER_IMAGE:latest .
+  - docker build --cache-from $USERNAME/$CONTAINER_IMAGE:latest --build-arg BUILD_DATE="${BUILD_DATE}" --build-arg TRAVIS_COMMIT="${TRAVIS_COMMIT}" --tag $USERNAME/$CONTAINER_IMAGE:$TRAVIS_COMMIT --tag $USERNAME/$CONTAINER_IMAGE:latest .
 
 after_script:
   - docker images
